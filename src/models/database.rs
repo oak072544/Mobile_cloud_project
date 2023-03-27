@@ -33,4 +33,3 @@ impl Database {
         &self.courses
     }
 }
-............
