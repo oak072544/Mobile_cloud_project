@@ -18,3 +18,10 @@ pub async fn logout() -> impl Responder {
     // perform logout
     HttpResponse::Ok().finish()
 }
+
+#[post("/signup")]
+pub async fn signup(user: web::Json<User>) -> impl Responder {
+    // Implement user registration logic here, for example, by adding the user to a database
+    let response_body = format!("User with username {} successfully registered!", user.username);
+    HttpResponse::Ok().body(response_body)
+}
