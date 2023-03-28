@@ -5,7 +5,6 @@ pub fn config(cfg: &mut web::ServiceConfig) {
     cfg
         .service(login)
         .service(logout)
-        .service(
-        web::resource("/signup")
-            .route(web::post().to(signup)));
+        .service(signup);
+        
 }

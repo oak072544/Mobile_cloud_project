@@ -1,4 +1,5 @@
 use actix_web::{web, post, HttpResponse, Responder};
+use serde_json::json;
 
 
 use crate::models::user::User;
@@ -22,6 +23,7 @@ pub async fn logout() -> impl Responder {
 #[post("/signup")]
 pub async fn signup(user: web::Json<User>) -> impl Responder {
     // Implement user registration logic here, for example, by adding the user to a database
-    let response_body = format!("User with username {} successfully registered!", user.username);
-    HttpResponse::Ok().body(response_body)
+    let response = format!("User with username {} successfully registered!",user.username);
+    let response_body = json!(response);
+    HttpResponse::Ok().json(response_body)
 }
