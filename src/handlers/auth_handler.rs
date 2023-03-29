@@ -27,3 +27,6 @@ pub async fn signup(user: web::Json<User>) -> impl Responder {
     let response_body = json!(response);
     HttpResponse::Ok().json(response_body)
 }
+
+
+

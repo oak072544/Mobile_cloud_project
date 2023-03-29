@@ -6,6 +6,7 @@ mod handlers;
 mod models;
 use crate::routes::course_routes;
 use crate::routes::auth_routes;
+use crate::routes::admin_routes;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -17,6 +18,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(middleware::Logger::default())
             .configure(course_routes::config)
             .configure(auth_routes::config)
+            .configure(admin_routes::config)
     })
     .bind("0.0.0.0:8080")?
     .run()
