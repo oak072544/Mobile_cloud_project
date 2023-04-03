@@ -28,7 +28,7 @@ pub async fn view_user_score() -> impl Responder {
 
 #[delete("/manage/user")]
 pub async fn delete_user() -> impl Responder {
-    HttpResponse::NoContent().finish()
+    HttpResponse::Ok().json("Delete complete")
 }
 
 #[post("/manage/course/{id}")]
@@ -38,5 +38,5 @@ pub async fn upload_course() -> impl Responder {
 
 #[delete("/manage/course/{id}")]
 pub async fn delete_course() -> impl Responder {
-    HttpResponse::NoContent().finish()
+    HttpResponse::Ok().json("Delete complete")
 }

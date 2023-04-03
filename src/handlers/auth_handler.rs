@@ -25,7 +25,7 @@ pub async fn signup(user: web::Json<User>) -> impl Responder {
     // Implement user registration logic here, for example, by adding the user to a database
     let response = format!("User with username {} successfully registered!",user.username);
     let response_body = json!(response);
-    HttpResponse::Ok().json(response_body)
+    HttpResponse::Created().json(response_body)
 }
 
 
