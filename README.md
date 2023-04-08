@@ -6,7 +6,7 @@
 
 [[LINK]api_ary](https://app.apiary.io/jakkaphatapiary/editor)
 
-[postman](https://github.com/oak072544/Mobile_cloud_project/blob/7f42868191e899a0bdecb3443f05efb77e9ff92f/other/Project_mobile.postman_collection.json)
+[postman](other\Project_mobile.postman_collection.json)
 
 
 Repository Structure
