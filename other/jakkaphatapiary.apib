@@ -1,0 +1,272 @@
+
+# API-Online Learning
+
+Great website for learning
+
+## Group Admin
+## Manage user [/manage/user]
+
++ Model (application/json)
+
+            {
+              "massage": "List of the user",
+              "user": [
+                {
+                  "us_name": "Loki",
+                  "us_gender": "Male",
+                  "us_id": "001"
+                },
+                {
+                  "us_name": "Lola",
+                  "us_gender": "Female",
+                  "us_id": "002"
+                },
+                {
+                  "us_name": "Lucy",
+                  "us_gender": "Female",
+                  "us_id": "003"
+                }
+              ]
+            }
+
+### View user score [GET]
+view all user score
++ Response 200
+
+    [Manage user][]
+
+### Delete user [DELETE]
+Delete a user
+
++ Response 200 (application/json)
+
+        {
+            "massage": "Delete complete"
+        }
+
+
+## Manage course [/manage/course]
+manage course
+
++ Model (application/json)
+
+            {
+          "massage": "List of course",
+          "course": [
+            {
+              "sub_name": "Math for life",
+              "sub_type": "Math",
+              "sub_id": "001"
+            },
+            {
+              "sub_name": "Science for life",
+              "sub_type": "Science",
+              "sub_id": "002"
+            },
+            {
+              "sub_name": "Chemistry",
+              "sub_type": "Science",
+              "sub_id": "003"
+            },
+            {
+              "sub_name": "Thai",
+              "sub_type": "Language",
+              "sub_id": "004"
+            },
+            {
+              "sub_name": "English",
+              "sub_type": "Language",
+              "sub_id": "005"
+            }
+          ]
+        }
+
+### Upload course [POST]
+อัปโหลดเนื้อหา
++ Response 201 (application/json)
+
+        {
+            "massage": "Upload complete"
+        }
+
++ Response 403 (application/json)
+
+        {
+           "message": "Admin only"
+        }
+
++ Response 404 (application/json)
+
+        {
+           "message": "Page not found"
+        }
+
+### Delete course [DELETE]
+ลบเนื้อหา          
++ Response 200 (application/json)
+
+        {
+            "massage": "Delete complete"
+        }
+
++ Response 403 (application/json)
+
+        {
+           "message": "Admin only"
+        }
+
++ Response 404 (application/json)
+
+        {
+           "message": "Page not found"
+        }
+
+## Group User
+
+## Login [/login]
+
+
+### Sign in [POST]
++ request (application/json)
+
+    + headers
+    
+            username: user,
+            password: pass
+
++ Response 200 (application/json)
+
+        {
+            "message": "Success",
+            "timestamp" : "00:00:00 00/00/0000"
+        }
+    
+    
++ Response 400 (application/json)
+
+        {
+          "message": "Invalid",
+          "error": [
+            {
+              "field": "username",
+              "detail": "Your username is incorrect"
+            },
+            {
+              "field": "password",
+              "detail": "Your password is incorrect"
+            }
+          ]
+        }
+
+## Sign up [/signup]
++ Model (application/json)
+
+        {
+           "username": "",
+           "password": "",
+           "email": ""
+        }
+     
+### Create account [POST]
++ Response 200
+
+        {
+        "massage": "Sign up success"
+        }
+
++ Response 400 (application/json)
+
+        {
+          "message": "Invalid",
+          "error": [
+            {
+              "field": "username",
+              "detail": "Username already exist"
+            },
+            {
+              "field": "password",
+              "detail": "Password already exist"
+            }
+          ]
+        }
+
++ Response 404 (application/json)
+
+        {
+           "message": "Page not found"
+        }
+
+## View a Course [/course/{sub_id}]
++ Parameters
+    + sub_id: 001 (string)
+
++ Model (application/json)
+
+        {
+        "sub_name": "Math for life",
+        "sub_type": "Math",
+        "sub_id": "001"
+        }
+        
+### View lesson [GET]
++ Response 200 
+
+    [View a Course][]
+    
+### Exercise [POST]
++ Response 201 (application/json)
+
+        {
+        "massage": "Your score is 0"
+        }
+        
+## View all Course [/course]
++ Model (application/json)
+
+        {
+          "massage": "List of course",
+          "course": [
+            {
+              "sub_name": "Math for life",
+              "sub_type": "Math",
+              "sub_id": "001",
+              "process": "100%"
+            },
+            {
+              "sub_name": "Science for life",
+              "sub_type": "Science",
+              "sub_id": "002",
+              "process": "50%"
+            },
+            {
+              "sub_name": "Chemistry",
+              "sub_type": "Science",
+              "sub_id": "003",
+              "process": "0%"
+            },
+            {
+              "sub_name": "Thai",
+              "sub_type": "Language",
+              "sub_id": "004",
+              "process": "40%"
+            },
+            {
+              "sub_name": "English",
+              "sub_type": "Language",
+              "sub_id": "005",
+              "process": "50%"
+            }
+          ]
+        }
+
+### Retrieve all Course [GET]
+Retrieves all course.
++ Response 200 
+
+    [View all Course][]
+
++ Response 404 (application/json)
+
+        {
+           "message": "Page not found"
+        }
